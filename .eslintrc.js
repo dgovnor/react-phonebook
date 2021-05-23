@@ -42,7 +42,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': ['error'],
     'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
     '@typescript-eslint/explicit-function-return-type': [
-      'error',
+      'off',
       {
         allowExpressions: true,
       },
