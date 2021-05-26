@@ -39,14 +39,11 @@ module.exports = {
     'react/prop-types': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     'no-shadow': 'off',
+    'no-empty-function': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/no-shadow': ['error'],
     'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
-    '@typescript-eslint/explicit-function-return-type': [
-      'off',
-      {
-        allowExpressions: true,
-      },
-    ],
+    '@typescript-eslint/explicit-function-return-type': 'off',
     'max-len': ['warn', { code: 80 }],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
