@@ -1,18 +1,39 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useStyles } from './useStyles';
 
 import * as ROUTES from '../../constants/routes';
+import { getUser, removeUserSession } from '../../utils/storage';
 
 export const Navigation: FC = () => {
+  const user = getUser();
+  const history = useHistory();
+  const handleLogin = () => {
+    if (user) {
+      removeUserSession();
+      getUser();
+      history.push('/signIn');
+    }
+  };
+  //   useEffect(() => {
+  //     getUser();
+  //   }, [user]);
   const classes = useStyles();
   return (
-    <div>
-      <header className={classes.header}>
-        <h1 className={classes.phonebook}>Phonebook</h1>
-        <p className={classes.link}><Link to={ROUTES.SIGN_IN}>Login</Link></p>
-      </header>
-    </div>
+
+    <header className={classes.header}>
+      <p className={classes.phonebook}>Phonebook</p>
+      <p className={classes.link}>
+        <Link
+          onClick={handleLogin}
+          to={ROUTES.SIGN_IN}
+        >
+          {
+                 !user ? 'Login' : 'Logout'
+              }
+        </Link>
+      </p>
+    </header>
   );
 };
 
